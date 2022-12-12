@@ -1,0 +1,73 @@
+{% include 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transaction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-red-100	">
+    <h1 class="text-red-700 ml-8 mt-4 text-2xl">{{ms}}</h1>
+  
+    <table class="w-full bg-sky-900 mt-12 ">
+
+        <thead class="">
+            <th class="border-2 border-sky-100  text-2xl text-indigo-50">Name</th>
+            <th class="border-2  border-sky-100   text-2xl text-indigo-50">Email</th>
+            <th class="border-2  border-sky-100   text-2xl text-indigo-50" >Balance</th>
+         
+            
+        </thead>  
+            
+        {% for i in data  %}
+    
+         <tr class="text-center">
+            <td class="border-2 p-2 text-white ">{{i.name}}</td>
+            <td class="border-2 p-2 text-white ">{{i.email}}</td>
+            <td class="border-2 p-2 text-white ">{{i.balance}}</td>
+          
+            
+    
+         </tr>
+
+            {% endfor %}
+         
+    
+            </table><br><br>
+            <div id="form1" class="h-56">
+
+            <form action="/pay/" method='POST' class="text-center">
+                {% csrf_token %}
+                <label class="text-2xl font-bold text-green-700 " >Transfer To: </label>
+                    <select class="text-center p-4 bg-green-800 text-white w-96 rounded" name="select1" required>
+                        <option>select</option>
+                        {% for j in data1  %}
+    
+                        <option >{{j.name}}</option>
+                      
+                           {% endfor %}
+                     </select><br><br><br>
+
+                <label class="text-2xl font-bold text-red-600" >Transfer From: </label>
+                    <select class="text-center p-4 bg-red-700 text-white w-96 rounded" name="select2" required>
+                        <option>select</option>
+                        {% for k in data1  %}
+    
+                        <option >{{k.name}}</option>
+                      
+                           {% endfor %}
+                     </select><br><br><br>
+
+      
+       <label class="ml-12 text-xl font-bold">Amount:</label>
+      <input type="number" class=" w-72  border-4 border-white h-16 mr-12 outline-none rounded" name="amount"  min="1" max="10000000" step="1" placeholder="Transfer limit: 75000" required ><br><br><br>
+                   <button class="bg-blue-900 text-white border-4 w-52  h-16 rounded ">Transfer</button>
+            </form>
+        </div>
+      
+</body>
+
+</html>

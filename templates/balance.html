@@ -1,0 +1,55 @@
+{% include 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>balance</title>
+</head>
+<body>
+    
+  
+
+    <div class="text-center mt-12 ">
+
+        <h1 class="text-bold text-2xl bg-teal-900 text-white p-4">Total $ Amount Of Customers---</h1>
+        
+    </div> 
+
+   
+
+<div class=" min-h-screen mt-8 ">
+
+   <table class="w-full bg-black">
+
+    <thead class="">
+        <th class="border-2  border-gray-500  text-2xl text-gray-400">Name</th>
+        <th class="border-2   border-gray-500 text-2xl text-gray-400">Email</th>
+        <th class="border-2   border-gray-500 text-2xl text-gray-400" >Balance</th>
+        <th class="border-2   border-gray-500 text-2xl text-white bg-green-800 " >Transaction</th>
+
+        
+    </thead>  
+        
+    {% for i in data  %}
+
+     <tr class="text-center">
+        <td class="border-2 p-2 text-white text-sm ">{{i.name}}</td>
+        <td class="border-2 p-2 text-white ">{{i.email}}</td>
+        <td class="border-2 p-2 text-white ">{{i.balance}}</td>
+        <td><a href="/transaction?name={{i.name}}" class="text-white underline hover:text-stone-400 font-bold ">Transfer </a></td>
+
+        
+
+     <tr>
+        {% endfor %}
+
+        </table>
+      
+
+    </div>
+
+
+</body>
+</html>

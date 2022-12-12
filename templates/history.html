@@ -1,0 +1,53 @@
+{% include 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="">
+  
+     
+    <div class=" min-h-screen mt-8 ">
+    <table class="w-full bg-gray-100  ">
+
+        <thead>
+            <th class="border-4  border-gray-100  text-2xl text-red-600">Sender</th>
+            <th class="border-4  border-gray-100 text-2xl text-green-700">Receiver</th>
+            <th class="border-4  border-gray-100 text-2xl text-black" >Amount</th>
+            <th class="border-4  border-gray-100 text-2xl text-gray-600" >Status</th>
+         
+            
+        </thead>  
+            
+        {% for i in data  %}
+        {% for j in data2  %}
+    
+         <tr class="text-center">
+            <td class="border-2 p-2 text-blue-900 font-bold ">{{j.name}}</td>
+            <td class="border-2 p-2 text-blue-900 font-bold ">{{i.name}}</td>
+            <td class="border-2 p-2 text-blue-900 font-bold ">{{amount}}</td>
+            <td class="text-green-800 text-xl font-bold">{{status}}</td>
+        <tr>
+        
+
+       
+            {% endfor %}
+            {% endfor %}
+    
+
+          
+         
+    
+            </table>
+            <h1 class="text-green-700 mt-24 text-center text-xl">{{ms}}<h1><br>
+            
+        </div>
+           
+       
+</body>
+</html>
